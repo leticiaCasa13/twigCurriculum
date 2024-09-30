@@ -4,29 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ titulo }}</title>
+    <!-- Enlace al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="{{ bootstrap_css }}">
+    <!-- Enlace a Google Fonts para el título -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo para el título con fuente Roboto y color violeta */
+        h1.title {
+            font-family: 'Roboto', sans-serif;
+            color: violet;
+        }
+
+        /* Estilo para las secciones */
+        h2.section-title {
+            color: violet;
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ name }}'s Profile {{ emoji }}</h1>
-    <hr>
-    
-    <h2>Red Social</h2>
-    <p>{{ social_network }}: <a href="{{ social_link }}" target="_blank">{{ social_link }}</a></p>
+    <div class="container mt-5">
+        <!-- Título del perfil con fuente personalizada y color violeta -->
+        <h1 class="text-center title">{{ name }}'s Profile {{ emoji }}</h1>
+        <hr>
 
-    <h2>Educación</h2>
-    <ul>
-        {% for edu in education %}
-        <li>
-            <strong>{{ edu.degree }}</strong>
-        </li>
-        {% endfor %}
-    </ul>
+        <!-- Sección Red Social con color violeta -->
+        <h2 class="section-title">Red Social</h2>
+        <p>{{ social_network }}: <a href="{{ social_link }}" target="_blank">{{ social_link }}</a></p>
 
-    <h2>Aprendiendo</h2>
-    <ol>
-        {% for learn in learning %}
-        <li><strong>{{ learn.language }}</strong></li>
-        {% endfor %}
-    </ol>
+        <!-- Sección Educación con color violeta -->
+        <h2 class="section-title">Educación</h2>
+        <ul class="list-group">
+            {% for edu in education %}
+            <li class="list-group-item">
+                <strong>{{ edu.degree }}</strong>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Sección Aprendiendo con color violeta -->
+        <h2 class="section-title">Aprendiendo</h2>
+        <ol class="list-group list-group-numbered">
+            {% for learn in learning %}
+            <li class="list-group-item"><strong>{{ learn.language }}</strong></li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <!-- Enlace al archivo JavaScript de Bootstrap -->
+    <script src="{{ bootstrap_js }}"></script>
 </body>
 </html>
 

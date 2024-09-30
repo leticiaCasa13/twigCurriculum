@@ -6,6 +6,7 @@ $twig = new \Twig\Environment($loader, [
     'cache' => false, // Desactivar cache en desarrollo
 ]);
 
+// Datos del currículo
 $education = [
     [
         'degree' => 'Batxillerat',
@@ -31,6 +32,11 @@ $learning = [
     ['language' => 'Java'],
 ];
 
+// Definir las rutas de Bootstrap CSS y JS
+$bootstrap_css = 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css';
+$bootstrap_js = 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js';
+
+// Renderizar la plantilla Twig y pasar las variables
 echo $twig->render('index.twig', [
     'titulo' => 'CV Leticia',
     'name' => 'Leticia',
@@ -40,7 +46,9 @@ echo $twig->render('index.twig', [
     'education' => $education,
     'work_experience' => $work_experience,
     'learning' => $learning,
+    // Pasar las rutas de Bootstrap
+    'bootstrap_css' => $bootstrap_css,
+    'bootstrap_js' => $bootstrap_js,
 ]);
 ?>
-
 
